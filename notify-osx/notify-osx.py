@@ -39,18 +39,8 @@
 ### NZBGET POST-PROCESSING SCRIPT										   ###
 ##############################################################################
 
-
 import os
 import sys
-
-def quote_argument(argument):
-    return '"%s"' % (
-        argument
-        .replace('\\', '\\\\')
-        .replace('"', '\\"')
-        .replace('$', '\\$')
-        .replace('`', '\\`')
-)
 
 # Function to send OSX notification
 def notify(title, message):
@@ -60,7 +50,7 @@ def notify(title, message):
     os.system(directory + '/terminal-notifier.app/Contents/MacOS/terminal-notifier {}'.format(' '.join([m, t, s])))
 
 file_name = os.environ.get('NZBPP_NZBNAME').replace('.',' ')
-directory = quote_argument(str(os.path.dirname(os.path.realpath(__file__))))
+directory = str(os.path.dirname(os.path.realpath(__file__))).replace('\\', '\\\\')
 on_success = os.environ.get('NZBPO_SUCCESS')
 on_failure = os.environ.get('NZBPO_FAILURE')
 
