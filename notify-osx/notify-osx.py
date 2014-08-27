@@ -61,7 +61,7 @@ def notify(title, message):
     os.system(directory + '/terminal-notifier.app/Contents/MacOS/terminal-notifier {}'.format(' '.join([m, t, s])))
 
 # If download is a success
-if os.environ.get('NZBPP_STATUS') == 'SUCCESS/ALL' and on_success == 'yes':
+if os.environ.get('NZBPP_TOTALSTATUS') == 'SUCCESS' and on_success == 'yes':
   file_name = os.environ.get('NZBPP_NZBNAME').replace('.',' ')
   notify(title = 'Download Complete', message  = file_name)
 
