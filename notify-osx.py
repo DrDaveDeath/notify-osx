@@ -57,7 +57,6 @@ def notify(title, message):
     t = '-title {!r}'.format(title)
     m = '-message {!r}'.format(message)
     s = '-sender {!r}'.format('net.sourceforge.nzbget')
-    g = '-'
     os.system(directory + '/terminal-notifier.app/Contents/MacOS/terminal-notifier {}'.format(' '.join([m, t, s])))
 
 file_name = os.environ.get('NZBPP_NZBNAME').replace('.',' ')
